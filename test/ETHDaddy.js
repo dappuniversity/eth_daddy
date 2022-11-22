@@ -4,7 +4,7 @@ const tokens = (n) => {
   return ethers.utils.parseUnits(n.toString(), 'ether')
 }
 
-describe("ETHDaddy", function () {
+describe("ETHDaddy", () => {
   let ethDaddy
   let deployer, owner1
 
@@ -24,7 +24,7 @@ describe("ETHDaddy", function () {
     await transaction.wait()
   })
 
-  describe("Deployment", function () {
+  describe("Deployment", () => {
     it("Sets the name", async () => {
       const result = await ethDaddy.name()
       expect(result).to.equal(NAME)
@@ -51,7 +51,7 @@ describe("ETHDaddy", function () {
     })
   })
 
-  describe("Domain", async () => {
+  describe("Domain", () => {
     it('Returns domain attributes', async () => {
       const domain = await ethDaddy.getDomain(1)
       expect(domain.name).to.be.equal("jack.eth")
@@ -60,7 +60,7 @@ describe("ETHDaddy", function () {
     })
   })
 
-  describe("Minting", async () => {
+  describe("Minting", () => {
     const ID = 1
     const AMOUNT = ethers.utils.parseUnits("10", 'ether')
 
@@ -85,7 +85,7 @@ describe("ETHDaddy", function () {
     })
   })
 
-  describe("Withdrawing", async () => {
+  describe("Withdrawing", () => {
     const ID = 1
     const AMOUNT = ethers.utils.parseUnits("10", 'ether')
     let balanceBefore
