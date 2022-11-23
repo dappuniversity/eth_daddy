@@ -14,7 +14,7 @@ const Domain = ({ domain, ethDaddy, provider, id }) => {
 
   const buyHandler = async () => {
     const signer = await provider.getSigner()
-    const transaction = await ethDaddy.connect(signer).mint(id)
+    const transaction = await ethDaddy.connect(signer).mint(id, { value: domain.cost })
     await transaction.wait()
 
     setHasSold(true)

@@ -33,9 +33,10 @@ contract ETHDaddy is ERC721 {
     }
 
     function mint(uint256 _id) public payable {
-        require(totalSupply <= maxSupply);
+        require(_id != 0);
+        require(_id <= maxSupply);
         require(domains[_id].isOwned == false);
-        require(domains[_id].cost >= msg.value);
+        require(msg.value >= domains[_id].cost);
 
         domains[_id].isOwned = true;
         totalSupply++;
