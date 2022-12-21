@@ -89,6 +89,7 @@ let SYMBOL = "ETHD"
   describe("Withdrawing", () => {
     const ID = 1
     const AMOUNT = ethers.utils.parseUnits("10", 'ether')
+    console.log("AMOUNT", AMOUNT)
     let balanceBefore
 
     beforeEach(async () => {
@@ -104,6 +105,8 @@ let SYMBOL = "ETHD"
 
     it('updates the owner balance', async () => {
     const balanceAfter = await ethers.provider.getBalance(deployer.address)
+    console.log("Balance Before: ",balanceBefore)
+    console.log("Balance After: ",balanceAfter)
     expect(balanceAfter).to.greaterThan(balanceBefore)
     })
 
