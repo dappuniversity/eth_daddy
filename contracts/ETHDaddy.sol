@@ -39,7 +39,7 @@ contract ETHDaddy is ERC721 {
         require(msg.value >= domains[_id].cost);
 
         domains[_id].isOwned = true;
-        totalSupply++;
+        ++totalSupply;
 
         _safeMint(msg.sender, _id);
     }
